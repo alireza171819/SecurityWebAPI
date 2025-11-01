@@ -6,10 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Frameworks\**" />
-    <EmbeddedResource Remove="Frameworks\**" />
-    <None Remove="Frameworks\**" />
-  </ItemGroup>
-
 </Project>
