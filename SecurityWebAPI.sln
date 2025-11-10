@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityWebApi", "SecurityW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryDesignPattern", "RepositoryDesignPattern\RepositoryDesignPattern.csproj", "{6549CD23-3D6A-4CEB-969B-629B141373AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyContainer", "DependencyContainer\DependencyContainer.csproj", "{035C8933-F161-4C89-BEE6-EBC15892D2B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{6549CD23-3D6A-4CEB-969B-629B141373AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6549CD23-3D6A-4CEB-969B-629B141373AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6549CD23-3D6A-4CEB-969B-629B141373AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{035C8933-F161-4C89-BEE6-EBC15892D2B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{035C8933-F161-4C89-BEE6-EBC15892D2B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{035C8933-F161-4C89-BEE6-EBC15892D2B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{035C8933-F161-4C89-BEE6-EBC15892D2B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +76,7 @@ Global
 		{D1BF75E0-9EB9-406C-823D-9A212801A319} = {B7B725EB-891A-4BE8-A7EC-48426EEF7DB1}
 		{B31E1E99-5058-4CD8-BB35-11A28C1DCB80} = {834E0BE6-DD32-485B-B573-8B248EA96D79}
 		{6549CD23-3D6A-4CEB-969B-629B141373AE} = {B7B725EB-891A-4BE8-A7EC-48426EEF7DB1}
+		{035C8933-F161-4C89-BEE6-EBC15892D2B4} = {8D792EE8-631B-4513-BBCB-98AEE0A5F1DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {40A1A385-7258-41DE-9F86-B3B01FDE2BDB}
