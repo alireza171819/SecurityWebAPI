@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Domain.Aggregates.UserManagementAggregates;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Model.Frameworks;
@@ -13,8 +14,8 @@ namespace EfCore;
 /// The context is configured via dependency injection and exposes
 /// <see cref="DbSet{TEntity}"/> properties for each entity type.
 /// </remarks>
-public class SecurityWebAPIContext : IdentityDbContext<MbssUser, MbssRole, string,
-        IdentityUserClaim<string>, MbssUserRole, IdentityUserLogin<string>,
+public class SecurityWebAPIContext : IdentityDbContext<User, Role, string,
+        IdentityUserClaim<string>, UserRole, IdentityUserLogin<string>,
         IdentityRoleClaim<string>, IdentityUserToken<string>>
 {
     /// <summary>
