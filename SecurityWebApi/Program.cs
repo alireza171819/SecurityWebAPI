@@ -1,9 +1,17 @@
-using Microsoft.Extensions.DependencyInjection;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+var WebaAPIAllowSpecificOrigins = "_webAPIAllowSpecificOrigins";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: WebaAPIAllowSpecificOrigins,
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+            .AllowAnyHeader().WithMethods("PUT", "DELETE", "GET")
+            .AllowAnyMethod();
+        });
+});
 builder.Services.AddControllers();
 builder.Services
     .AddConfig(builder.Configuration)
@@ -21,6 +29,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(WebaAPIAllowSpecificOrigins);
 
 app.UseAuthorization();
 
