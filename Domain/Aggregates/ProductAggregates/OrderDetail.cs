@@ -3,11 +3,10 @@ using Domain.Frameworks.Bases;
 
 namespace Model.DomainModels.ProductAggregates;
 
-public class Product : BaseEntity, ICodedEntity<long>, ICreateOnDate, IUpdateOnDate, IDeletedEntity, IDbSetEntity
+public class OrderDetail : BaseEntity, ICodedEntity<long>, ICreateOnDate, IUpdateOnDate, IDeletedEntity, IDbSetEntity
 {
-    public string ProductName { get; set; }
-    public decimal UnitPrice { get; set; }
-    public int UnitsInStock { get; set; }
+    public int UnitPrice { get; set; }
+    public int Quantity { get; set; }
     public long Code { get ; set ; }
     public DateTime GregorianDateCreate { get ; set ; }
     public DateTime GregorianDateUpdate { get ; set ; }
