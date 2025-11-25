@@ -4,9 +4,9 @@ using Domain.Aggregates.UserManagementAggregates;
 using EfCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
-using RepositoryDesignPattern.Contracts;
 using RepositoryDesignPattern.Services;
 using Microsoft.EntityFrameworkCore;
+using RepositoryDesignPattern.Contracts.Products;
 
 namespace Microsoft.Extensions.DependencyInjection;
 

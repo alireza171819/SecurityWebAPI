@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EfCore.Migrations
 {
     [DbContext(typeof(SecurityWebAPIContext))]
-    [Migration("20251125101041_firstmigration")]
-    partial class firstmigration
+    [Migration("20251125113046_first_migration")]
+    partial class first_migration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,77 +25,6 @@ namespace EfCore.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Domain.Aggregates.CustomerAggregates.Customer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Country")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CustomerEmail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CustomerName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("GregorianDateCreate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("GregorianDateDeleted")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("GregorianDateUpdate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PostalCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Region")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("UUId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
-
-                    b.ToTable("Customer");
-                });
-
             modelBuilder.Entity("Domain.Aggregates.OrderAggregates.Order", b =>
                 {
                     b.Property<int>("Id")
@@ -103,9 +32,6 @@ namespace EfCore.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("GregorianDateCreate")
                         .HasColumnType("datetime2");
@@ -154,9 +80,12 @@ namespace EfCore.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("NEWID()");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomerId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Order");
                 });
@@ -274,6 +203,10 @@ namespace EfCore.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("GregorianDateCreate")
                         .HasColumnType("datetime2");
 
@@ -288,6 +221,10 @@ namespace EfCore.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -486,26 +423,15 @@ namespace EfCore.Migrations
                     b.ToTable("Product");
                 });
 
-            modelBuilder.Entity("Domain.Aggregates.CustomerAggregates.Customer", b =>
+            modelBuilder.Entity("Domain.Aggregates.OrderAggregates.Order", b =>
                 {
                     b.HasOne("Domain.Aggregates.UserManagementAggregates.User", "User")
-                        .WithOne()
-                        .HasForeignKey("Domain.Aggregates.CustomerAggregates.Customer", "UserId")
+                        .WithMany("Orders")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Domain.Aggregates.OrderAggregates.Order", b =>
-                {
-                    b.HasOne("Domain.Aggregates.CustomerAggregates.Customer", "Customer")
-                        .WithMany("Orders")
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("Domain.Aggregates.OrderAggregates.OrderDetail", b =>
@@ -578,14 +504,14 @@ namespace EfCore.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Domain.Aggregates.CustomerAggregates.Customer", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
             modelBuilder.Entity("Domain.Aggregates.OrderAggregates.Order", b =>
                 {
                     b.Navigation("OrderDetails");
+                });
+
+            modelBuilder.Entity("Domain.Aggregates.UserManagementAggregates.User", b =>
+                {
+                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("Model.DomainModels.ProductAggregates.Product", b =>
