@@ -10,9 +10,9 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
     {
         builder.HasKey(o => o.Id);
 
-        builder.HasOne(x => x.Customer)
+        builder.HasOne(x => x.User)
             .WithMany(c => c.Orders)
-            .HasForeignKey(x => x.CustomerId)
+            .HasForeignKey(x => x.UserId)
             .OnDelete(DeleteBehavior.Restrict);// deleting an order deletes its details
 
         builder.Property(x => x.UUId).HasDefaultValueSql("NEWID()");
