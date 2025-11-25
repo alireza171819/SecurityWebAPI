@@ -14,9 +14,9 @@ namespace EfCore;
 /// The context is configured via dependency injection and exposes
 /// <see cref="DbSet{TEntity}"/> properties for each entity type.
 /// </remarks>
-public class SecurityWebAPIContext : IdentityDbContext<User, Role, string,
-        IdentityUserClaim<string>, UserRole, IdentityUserLogin<string>,
-        IdentityRoleClaim<string>, IdentityUserToken<string>>
+public class SecurityWebAPIContext : IdentityDbContext<User, Role, int,
+        IdentityUserClaim<int>, UserRole, IdentityUserLogin<int>,
+        IdentityRoleClaim<int>, IdentityUserToken<int>>
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="SecurityWebAPIContext"/> class
