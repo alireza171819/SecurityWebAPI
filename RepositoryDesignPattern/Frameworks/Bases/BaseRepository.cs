@@ -1,4 +1,5 @@
 ﻿using Domain.Aggregates.UserManagementAggregates;
+using Domain.Frameworks.Abstracts;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -21,9 +22,9 @@ namespace RepositoryDesignPattern.Frameworks.Bases;
 /// </typeparam>
 public class BaseRepository<TDbContext, TEntity, TPrimaryKey> : IBaseRepository<TEntity, TPrimaryKey>
                                                                           where TEntity : class
-                                                                          where TDbContext : IdentityDbContext<User, Role, string,
-                                                                              IdentityUserClaim<string>, UserRole, IdentityUserLogin<string>,
-                                                                              IdentityRoleClaim<string>, IdentityUserToken<string>>
+                                                                          where TDbContext : IdentityDbContext<User, Role, int,
+                                                                              IdentityUserClaim<int>, UserRole, IdentityUserLogin<int>,
+                                                                              IdentityRoleClaim<int>, IdentityUserToken<int>>
 {
     #region Filds
     /// <summary>
