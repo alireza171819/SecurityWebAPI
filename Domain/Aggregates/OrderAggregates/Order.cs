@@ -1,4 +1,4 @@
-﻿using Domain.Aggregates.CustomerAggregates;
+﻿using Domain.Aggregates.UserManagementAggregates;
 using Domain.Frameworks.Abstracts;
 using Domain.Frameworks.Bases;
 
@@ -6,8 +6,8 @@ namespace Domain.Aggregates.OrderAggregates;
 
 public class Order : BaseEntity, ICreateOnDate, IUpdateOnDate, IDeletedEntity, IDbSetEntity
 {
-    public int CustomerId { get; set; }
-    public Customer Customer { get; set; }
+    public int UserId { get; set; }
+    public User User { get; set; }
     public DateTime OrderDate { get; set; }
     public DateTime ShipedDate { get; set; }
     public string ShipName { get; set; }
