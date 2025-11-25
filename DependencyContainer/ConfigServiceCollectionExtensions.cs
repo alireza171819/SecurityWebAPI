@@ -18,7 +18,7 @@ public static class ConfigServiceCollectionExtensions
        
         services.AddDbContext<SecurityWebAPIContext>(options =>
         {
-            options.UseSqlServer(config.GetConnectionString("WebAPIApplicationConnectionString"));
+            options.UseSqlServer(config.GetConnectionString("SecurityWebAPIConnectionString"));
         });
 
 
