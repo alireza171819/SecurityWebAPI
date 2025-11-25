@@ -1,4 +1,5 @@
-﻿using Domain.Frameworks.Abstracts;
+﻿using Domain.Aggregates.OrderAggregates;
+using Domain.Frameworks.Abstracts;
 using Domain.Frameworks.Bases;
 
 namespace Model.DomainModels.ProductAggregates;
@@ -13,4 +14,6 @@ public class Product : BaseEntity, ICodedEntity<long>, ICreateOnDate, IUpdateOnD
     public DateTime GregorianDateUpdate { get ; set ; }
     public bool IsDeleted { get ; set ; }
     public DateTime GregorianDateDeleted { get ; set ; }
+
+    public ICollection<OrderDetail> OrderDetails { get; set; }
 }

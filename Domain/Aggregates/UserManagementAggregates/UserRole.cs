@@ -2,6 +2,7 @@
 
 namespace Domain.Aggregates.UserManagementAggregates;
 
-public class UserRole : IdentityUserRole<string>
+public class UserRole : IdentityUserRole<int>
 {
+
 }
