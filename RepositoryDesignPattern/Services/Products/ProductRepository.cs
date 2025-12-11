@@ -1,5 +1,4 @@
-﻿using Domain.Aggregates.UserManagementAggregates;
-using EfCore;
+﻿using EfCore;
 using Microsoft.EntityFrameworkCore;
 using Model.DomainModels.ProductAggregates;
 using RepositoryDesignPattern.Contracts.Products;

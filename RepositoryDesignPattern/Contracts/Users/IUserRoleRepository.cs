@@ -1,5 +1,8 @@
-﻿namespace RepositoryDesignPattern.Contracts.Users;
+﻿using Domain.Aggregates.UserManagementAggregates;
+using RepositoryDesignPattern.Frameworks.Abstracts;
 
-public interface IUserRoleRepository
+namespace RepositoryDesignPattern.Contracts.Users;
+
+public interface IUserRoleRepository : IBaseRepository<UserRole, int>
 {
 }

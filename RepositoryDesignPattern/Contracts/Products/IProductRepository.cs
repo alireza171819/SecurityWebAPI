@@ -1,6 +1,9 @@
-﻿namespace RepositoryDesignPattern.Contracts.Products;
+﻿using Model.DomainModels.ProductAggregates;
+using RepositoryDesignPattern.Frameworks.Abstracts;
 
-public interface IProductRepository
+namespace RepositoryDesignPattern.Contracts.Products;
+
+public interface IProductRepository : IBaseRepository<Product, int> 
 {
 
 }
