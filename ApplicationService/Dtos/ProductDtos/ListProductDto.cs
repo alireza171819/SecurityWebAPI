@@ -2,5 +2,5 @@
 
 public class ListProductDto
 {
-    public GetByProductIdDto ProductIdDto { get; set; }
+    public List<SingleProductDto> ProductDtos { get; set; }
 }

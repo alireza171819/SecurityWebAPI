@@ -1,6 +1,6 @@
 ﻿namespace ApplicationService.Dtos.ProductDtos;
 
-public class DeleteProductDto
+public class GetByIdProductDto
 {
     public int Id { get; set; }
 }
