@@ -4,7 +4,7 @@ using Domain.Frameworks.Bases;
 
 namespace Domain.Aggregates.OrderAggregates;
 
-public class Order : BaseEntity, ICreateOnDate, IUpdateOnDate, IDeletedEntity, IDbSetEntity
+public class Order : BaseEntity, ICodedEntity<long>, ICreateOnDate, IUpdateOnDate, IDeletedEntity, IDbSetEntity
 {
     public int UserId { get; set; }
     public User User { get; set; }
@@ -16,6 +16,7 @@ public class Order : BaseEntity, ICreateOnDate, IUpdateOnDate, IDeletedEntity, I
     public string ShipRegion { get; set; }
     public string ShipPostalCode { get; set; }
     public string ShipCountry { get; set; }
+    public long Code { get ; set ; }
     public DateTime GregorianDateCreate { get ; set ; }
     public DateTime GregorianDateUpdate { get ; set ; }
     public bool IsDeleted { get ; set ; }

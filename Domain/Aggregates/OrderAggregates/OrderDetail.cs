@@ -1,5 +1,4 @@
 ﻿using Domain.Frameworks.Abstracts;
-using Domain.Frameworks.Bases;
 using Model.DomainModels.ProductAggregates;
 
 namespace Domain.Aggregates.OrderAggregates;
