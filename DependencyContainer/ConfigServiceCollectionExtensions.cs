@@ -1,5 +1,4 @@
 ﻿using ApplicationService.Services.ProductServices;
-using ApplicationService.Services.ProductServices.Contract;
 using Domain.Aggregates.UserManagementAggregates;
 using EfCore;
 using Microsoft.AspNetCore.Identity;
@@ -7,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using RepositoryDesignPattern.Services;
 using Microsoft.EntityFrameworkCore;
 using RepositoryDesignPattern.Contracts.Products;
+using ApplicationService.Services.Contracts.ProductContracts;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
