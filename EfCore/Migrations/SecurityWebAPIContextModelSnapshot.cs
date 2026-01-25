@@ -131,7 +131,7 @@ namespace EfCore.Migrations
                     b.ToTable("OrderDetail");
                 });
 
-            modelBuilder.Entity("Domain.Aggregates.UserManagementAggregates.Role", b =>
+            modelBuilder.Entity("Domain.Aggregates.Users.Role", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -178,7 +178,7 @@ namespace EfCore.Migrations
                     b.ToTable("AspNetRoles", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Aggregates.UserManagementAggregates.User", b =>
+            modelBuilder.Entity("Domain.Aggregates.Users.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -274,7 +274,7 @@ namespace EfCore.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Aggregates.UserManagementAggregates.UserRole", b =>
+            modelBuilder.Entity("Domain.Aggregates.Users.UserRole", b =>
                 {
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -422,7 +422,7 @@ namespace EfCore.Migrations
 
             modelBuilder.Entity("Domain.Aggregates.OrderAggregates.Order", b =>
                 {
-                    b.HasOne("Domain.Aggregates.UserManagementAggregates.User", "User")
+                    b.HasOne("Domain.Aggregates.Users.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -450,15 +450,15 @@ namespace EfCore.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("Domain.Aggregates.UserManagementAggregates.UserRole", b =>
+            modelBuilder.Entity("Domain.Aggregates.Users.UserRole", b =>
                 {
-                    b.HasOne("Domain.Aggregates.UserManagementAggregates.Role", null)
+                    b.HasOne("Domain.Aggregates.Users.Role", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Aggregates.UserManagementAggregates.User", null)
+                    b.HasOne("Domain.Aggregates.Users.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -467,7 +467,7 @@ namespace EfCore.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
-                    b.HasOne("Domain.Aggregates.UserManagementAggregates.Role", null)
+                    b.HasOne("Domain.Aggregates.Users.Role", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -476,7 +476,7 @@ namespace EfCore.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
                 {
-                    b.HasOne("Domain.Aggregates.UserManagementAggregates.User", null)
+                    b.HasOne("Domain.Aggregates.Users.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -485,7 +485,7 @@ namespace EfCore.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
                 {
-                    b.HasOne("Domain.Aggregates.UserManagementAggregates.User", null)
+                    b.HasOne("Domain.Aggregates.Users.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -494,7 +494,7 @@ namespace EfCore.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
                 {
-                    b.HasOne("Domain.Aggregates.UserManagementAggregates.User", null)
+                    b.HasOne("Domain.Aggregates.Users.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -506,7 +506,7 @@ namespace EfCore.Migrations
                     b.Navigation("OrderDetails");
                 });
 
-            modelBuilder.Entity("Domain.Aggregates.UserManagementAggregates.User", b =>
+            modelBuilder.Entity("Domain.Aggregates.Users.User", b =>
                 {
                     b.Navigation("Orders");
                 });

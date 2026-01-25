@@ -1,8 +1,9 @@
-﻿using Domain.Aggregates.UserManagementAggregates;
+﻿using Domain.Aggregates.Identity;
+using EfCore.Frameworks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Model.Frameworks;
+using Domain.Common;
 using System.Reflection;
 
 namespace EfCore;
@@ -35,7 +36,7 @@ public class SecurityWebAPIContext : IdentityDbContext<User, Role, int,
 
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-        modelBuilder.RegisterAllEntities<IDbSetEntity>(typeof(IDbSetEntity).Assembly);
+        modelBuilder.RegisterAllEntities<BaseEntity>(typeof(BaseEntity).Assembly);
 
         base.OnModelCreating(modelBuilder);
     }
